@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace AngryBirdsDatabase
 {
     /// <summary>
@@ -20,6 +21,10 @@ namespace AngryBirdsDatabase
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AngryBirdsDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+        private MyContext context = new MyContext(connectionString);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -55,5 +60,11 @@ namespace AngryBirdsDatabase
              
              */
         }
+
+
+
+       
     }
+
+
 }
