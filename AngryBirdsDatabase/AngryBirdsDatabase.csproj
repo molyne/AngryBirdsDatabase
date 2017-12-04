@@ -77,6 +77,14 @@
     <Compile Include="Migrations\201712041246152_Deletedproperty.Designer.cs">
       <DependentUpon>201712041246152_Deletedproperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712041259252_Addedannotations.cs" />
+    <Compile Include="Migrations\201712041259252_Addedannotations.Designer.cs">
+      <DependentUpon>201712041259252_Addedannotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041316063_ChangedRelations.cs" />
+    <Compile Include="Migrations\201712041316063_ChangedRelations.Designer.cs">
+      <DependentUpon>201712041316063_ChangedRelations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Score.cs" />
@@ -120,6 +128,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712041246152_Deletedproperty.resx">
       <DependentUpon>201712041246152_Deletedproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041259252_Addedannotations.resx">
+      <DependentUpon>201712041259252_Addedannotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041316063_ChangedRelations.resx">
+      <DependentUpon>201712041316063_ChangedRelations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

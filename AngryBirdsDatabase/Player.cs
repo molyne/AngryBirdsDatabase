@@ -9,8 +9,13 @@ namespace AngryBirdsDatabase
 {
     class Player
     {
-        [Key] public int PlayerKey { get; set; }
+        [Key]
+        public int PlayerKey { get; set; }
+
+        [Required]
+        [MaxLength(20)]
         public string PlayerName { get; set; }
+
         public int TotalScore { get; set; }
 
         public virtual ICollection<Score> Scores { get; set; }

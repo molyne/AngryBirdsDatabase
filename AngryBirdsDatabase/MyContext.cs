@@ -11,13 +11,14 @@ namespace AngryBirdsDatabase
     {
         private const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AngryBirdsDatabase.MyContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public MyContext() : base(connectionString) { }
+        public MyContext() : base() { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Player>()
                 .HasMany(p => p.Scores)
-                .WithMany(s => s.Players);
+                .WithRequired(s => s.Player);
+
 
             modelBuilder.Entity<Level>()
                 .HasMany(l => l.Scores)

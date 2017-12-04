@@ -11,10 +11,12 @@ namespace AngryBirdsDatabase
     {
         [Key]
         public int ScoreKey { get; set; }
+
         public int LevelScore { get; set; }
+
         public int BirdsLeft { get; set; }
 
-        public virtual ICollection<Player> Players { get; set; }
+        public virtual Player Player { get; set; }
         public virtual Level Level { get; set; }
 
     }
