@@ -11,7 +11,6 @@ namespace AngryBirdsDatabase
     {
         [Key] public int PlayerKey { get; set; }
         public string PlayerName { get; set; }
-        public int CurrentLevel { get; set; }
         public int TotalScore { get; set; }
 
         public virtual ICollection<Score> Scores { get; set; }
