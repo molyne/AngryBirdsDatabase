@@ -17,5 +17,6 @@ namespace AngryBirdsDatabase
         public virtual ICollection<Score> Scores { get; set; }
 
 
+
     }
 }
