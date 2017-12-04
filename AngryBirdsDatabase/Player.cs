@@ -16,8 +16,6 @@ namespace AngryBirdsDatabase
         [MaxLength(20)]
         public string PlayerName { get; set; }
 
-        public int TotalScore { get; set; }
-
         public virtual ICollection<Score> Scores { get; set; }
 
 
