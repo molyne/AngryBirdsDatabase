@@ -9,7 +9,7 @@ namespace AngryBirdsDatabase
 {
     class Player
     {
-        [Key] public int PlayerId { get; set; }
+        [Key] public int PlayerKey { get; set; }
         public string PlayerName { get; set; }
         public int CurrentLevel { get; set; }
         public int TotalScore { get; set; }

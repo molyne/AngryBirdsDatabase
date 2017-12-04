@@ -9,9 +9,10 @@ namespace AngryBirdsDatabase
 {
     class Level
     {
-        [Key] public int LevelId { get; set; }
-        public int Birds { get; set; }
+        [Key]
+        public int LevelKey { get; set; }
 
+        public int Birds { get; set; }
         public virtual IList<Score> Scores{ get; set; }
     }
 }

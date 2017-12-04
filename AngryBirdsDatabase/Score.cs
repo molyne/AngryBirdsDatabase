@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,8 @@ namespace AngryBirdsDatabase
 {
     class Score
     {
-        public int ScoreId { get; set; }
-        public int PlayerId { get; set; }
-        public int LevelId { get; set; }
+        [Key]
+        public int ScoreKey { get; set; }
         public int LevelScore { get; set; }
         public int BirdsLeft { get; set; }
 

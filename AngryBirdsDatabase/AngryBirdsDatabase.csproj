@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201712041146518_DatabaseEmpty.Designer.cs">
       <DependentUpon>201712041146518_DatabaseEmpty.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712041240278_ChangesKeyNames.cs" />
+    <Compile Include="Migrations\201712041240278_ChangesKeyNames.Designer.cs">
+      <DependentUpon>201712041240278_ChangesKeyNames.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Score.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712041146518_DatabaseEmpty.resx">
       <DependentUpon>201712041146518_DatabaseEmpty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041240278_ChangesKeyNames.resx">
+      <DependentUpon>201712041240278_ChangesKeyNames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
