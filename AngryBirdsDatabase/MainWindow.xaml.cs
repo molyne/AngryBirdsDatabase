@@ -21,9 +21,9 @@ namespace AngryBirdsDatabase
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AngryBirdsDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        
 
-        private MyContext context = new MyContext(connectionString);
+  
 
         public MainWindow()
         {
@@ -59,6 +59,13 @@ namespace AngryBirdsDatabase
              
              
              */
+
+            using (var ctx = new MyContext())
+            {
+                var t = ctx.Players.Count();
+                //Console.WriteLine(t);
+            }
+            Console.ReadLine();
         }
 
 

@@ -9,9 +9,24 @@ namespace AngryBirdsDatabase
 {
     class MyContext : DbContext
     {
-        
+        private const string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AngryBirdsDatabase.MyContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public MyContext(string ConnectionString) : base(ConnectionString) { }
+        public MyContext() : base(connectionString) { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Player>()
+                .HasMany(p => p.Scores)
+                .WithMany(s => s.Players);
+
+            modelBuilder.Entity<Level>()
+                .HasMany(l => l.Scores)
+                .WithRequired(s => s.Level);
+              
+            base.OnModelCreating(modelBuilder);
+
+        }
+
 
         public DbSet<Player> Players {get; set;}
         public DbSet<Level> Levels { get; set; }
