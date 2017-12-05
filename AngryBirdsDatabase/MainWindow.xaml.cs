@@ -65,6 +65,8 @@ namespace AngryBirdsDatabase
                 var t = ctx.Players.Count();
                 //Console.WriteLine(t);
             }
+
+            AddDataToListBoxes();
             Console.ReadLine();
         }
 
@@ -92,6 +94,23 @@ namespace AngryBirdsDatabase
            //fixa listbox så att players läggs in där
 
             context.SaveChanges();
+
+            PlayerListBox.Items.Clear();
+            AddDataToListBoxes();
+          //var selectedPlayer = context.Scores.Where(s => s.Player.PlayerName == userName);
+
+          //  ScoreListBox.Items.Add(selectedPlayer);
+
+        }
+        private void AddDataToListBoxes()
+        {
+
+            var allPlayers = context.Players.ToList();
+
+            foreach (var p in allPlayers)
+            {
+                PlayerListBox.Items.Add(p.PlayerName);
+            }
         }
 
        
