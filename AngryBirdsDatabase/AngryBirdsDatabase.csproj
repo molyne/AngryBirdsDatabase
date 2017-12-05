@@ -93,6 +93,10 @@
     <Compile Include="Migrations\201712041408440_AddedColumn.Designer.cs">
       <DependentUpon>201712041408440_AddedColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712051328097_allowed nulls.cs" />
+    <Compile Include="Migrations\201712051328097_allowed nulls.Designer.cs">
+      <DependentUpon>201712051328097_allowed nulls.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Score.cs" />
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712041408440_AddedColumn.resx">
       <DependentUpon>201712041408440_AddedColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051328097_allowed nulls.resx">
+      <DependentUpon>201712051328097_allowed nulls.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

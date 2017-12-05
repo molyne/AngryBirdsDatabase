@@ -15,15 +15,22 @@ namespace AngryBirdsDatabase
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Player>()
-                .HasMany(p => p.Scores)
-                .WithRequired(s => s.Player);
+
+            var scoreConfig = modelBuilder.Entity<Score>();
+            var levelConfiq = modelBuilder.Entity<Level>();
+
+            modelBuilder.Entity<Player>().HasMany(p => p.Scores).WithRequired(s => s.Player);
 
 
-            modelBuilder.Entity<Level>()
-                .HasMany(l => l.Scores)
-                .WithRequired(s => s.Level);
-              
+            levelConfiq.HasMany(l => l.Scores).WithRequired(s => s.Level);
+            levelConfiq.Property(l => l.LevelNumber).IsOptional();
+            levelConfiq.Property(l => l.Birds).IsOptional();
+
+            scoreConfig.Property(s => s.BirdsLeft).IsOptional();
+
+
+
+
             base.OnModelCreating(modelBuilder);
 
         }

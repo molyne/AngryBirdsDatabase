@@ -21,7 +21,7 @@ namespace AngryBirdsDatabase
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        MyContext context = new MyContext();
 
   
 
@@ -68,9 +68,27 @@ namespace AngryBirdsDatabase
             Console.ReadLine();
         }
 
+        private void AddUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            
 
+            string userName = UsernameTextBox.Text;
+            
+              string  level = LevelTextBox.Text;
+            
+            string score = ScoreTextBox.Text;
 
-       
+            Player player = new Player { PlayerName = userName };
+            context.Players.Add(player);
+
+           
+                Level levelNumber = new Level { LevelNumber = int.Parse(level) };
+
+                context.Levels.Add(levelNumber);
+            context.Scores.Add(new Score { Player = player, Level = levelNumber, LevelScore =int.Parse(score) });
+
+            context.SaveChanges();
+        }
     }
 
 
