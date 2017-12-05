@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AngryBirdsDatabase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="487.667" Width="614.333">
+    <Grid Margin="0,0,-81.333,-90.333">
+        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" Height="23" Margin="22,27,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="ScoreListBox" HorizontalAlignment="Left" Height="155" Margin="30,156,0,0" VerticalAlignment="Top" Width="246"/>
+        <Label x:Name="InfoLabel" Content="Info" HorizontalAlignment="Left" Margin="165,23,0,0" VerticalAlignment="Top" Width="102"/>
+
     </Grid>
 </Window>
