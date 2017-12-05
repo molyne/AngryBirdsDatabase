@@ -13,9 +13,6 @@ namespace AngryBirdsDatabase
         public int LevelKey { get; set; }
 
         [Required]
-        public int LevelNumber { get; set; }
-
-        [Required]
         public int Birds { get; set; }
 
         public virtual IList<Score> Scores{ get; set; }

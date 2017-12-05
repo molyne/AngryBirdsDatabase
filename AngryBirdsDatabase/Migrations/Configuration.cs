@@ -10,11 +10,11 @@ namespace AngryBirdsDatabase.Migrations
         Player player1 = new Player { PlayerName = "Camilla"};
         Player player2 = new Player { PlayerName = "Molyn" };
         Player player3 = new Player { PlayerName = "Joakim" };
-        Level level1 = new Level { Birds = 7, LevelNumber = 1 };
-        Level level2 = new Level { Birds =  10, LevelNumber = 2 };
-        Level level3 = new Level { Birds = 5, LevelNumber = 3 };
-        Level level4 = new Level { Birds = 6, LevelNumber = 4 };
-        Level level5 = new Level { Birds = 9, LevelNumber = 5 };
+        Level level1 = new Level { Birds = 7};
+        Level level2 = new Level { Birds =  10};
+        Level level3 = new Level { Birds = 5};
+        Level level4 = new Level { Birds = 6};
+        Level level5 = new Level { Birds = 9};
 
 
         public Configuration()

@@ -23,7 +23,6 @@ namespace AngryBirdsDatabase
 
 
             levelConfiq.HasMany(l => l.Scores).WithRequired(s => s.Level);
-            levelConfiq.Property(l => l.LevelNumber).IsOptional();
             levelConfiq.Property(l => l.Birds).IsOptional();
 
             scoreConfig.Property(s => s.BirdsLeft).IsOptional();

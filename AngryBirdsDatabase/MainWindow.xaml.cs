@@ -82,7 +82,7 @@ namespace AngryBirdsDatabase
             context.Players.Add(player);
 
            
-                Level levelNumber = new Level { LevelNumber = int.Parse(level) };
+                Level levelNumber = new Level { LevelKey = int.Parse(level) };
 
                 context.Levels.Add(levelNumber);
             context.Scores.Add(new Score { Player = player, Level = levelNumber, LevelScore =int.Parse(score) });
