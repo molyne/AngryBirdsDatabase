@@ -23,7 +23,7 @@ namespace AngryBirdsDatabase
     {
         MyContext context = new MyContext();
 
-  
+        Player player;
 
         public MainWindow()
         {
@@ -73,22 +73,28 @@ namespace AngryBirdsDatabase
             
 
             string userName = UsernameTextBox.Text;
-            
-              string  level = LevelTextBox.Text;
-            
-            string score = ScoreTextBox.Text;
 
-            Player player = new Player { PlayerName = userName };
+           player= new Player { PlayerName = userName };
+
             context.Players.Add(player);
 
-           
-                Level levelNumber = new Level { LevelKey = int.Parse(level) };
+            if (LevelTextBox.Text != "" || ScoreTextBox.Text!="")
+            {
 
+                string level = LevelTextBox.Text;
+
+                Level levelNumber = new Level { LevelKey = int.Parse(level) };
                 context.Levels.Add(levelNumber);
-            context.Scores.Add(new Score { Player = player, Level = levelNumber, LevelScore =int.Parse(score) });
+
+                string score = ScoreTextBox.Text;
+                context.Scores.Add(new Score { Player = player, Level = levelNumber, LevelScore =int.Parse(score) });
+            }
+           //fixa listbox så att players läggs in där
 
             context.SaveChanges();
         }
+
+       
     }
 
 
