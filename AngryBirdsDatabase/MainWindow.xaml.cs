@@ -24,6 +24,7 @@ namespace AngryBirdsDatabase
         MyContext context = new MyContext();
 
         Player player;
+        Player playerviewScore;
 
         List<Score> ScoresList;
       
@@ -162,6 +163,29 @@ namespace AngryBirdsDatabase
             AddLevelBirdsTextBox.Clear();
 
             AddDataToListBoxes();
+        }
+
+        private void ViewScoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            string user = UsernameTextBox.Text;
+
+            if (UsernameTextBox.Text != "")
+            {
+                var selectedPlayer = context.Players.Where(p => p.PlayerName ==user).Single();
+
+
+
+                var list = selectedPlayer.Scores;
+
+                foreach (var x in list)
+                {
+                ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}");
+
+                }
+
+            }
+
+            
         }
     }
 
