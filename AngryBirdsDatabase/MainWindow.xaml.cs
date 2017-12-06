@@ -77,10 +77,11 @@ namespace AngryBirdsDatabase
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
            var playerNames = context.Players.Select(s => s.PlayerName);
+          
+                string userName = UsernameTextBox.Text;
 
             if (UsernameTextBox.Text != "")
             {
-                string userName = UsernameTextBox.Text;
                 if (!playerNames.Contains(userName))
                 {
 
@@ -88,18 +89,24 @@ namespace AngryBirdsDatabase
 
                     context.Players.Add(player);
                 }
+                               
             }
 
             if (LevelTextBox.Text != "" || ScoreTextBox.Text!="")
             {
+                int levelNumber = int.Parse(LevelTextBox.Text);
+                int choosenScore = int.Parse(ScoreTextBox.Text);
 
-                string level = LevelTextBox.Text;
 
-                Level levelNumber = new Level { LevelKey = int.Parse(level) };
-                context.Levels.Add(levelNumber);
+                var selectedPlayer = context.Scores.Where(s => s.Level.LevelKey == levelNumber && s.Player.PlayerName == userName).Select(x => x).Single();
 
-                string score = ScoreTextBox.Text;
-                context.Scores.Add(new Score { Player = player, Level = levelNumber, LevelScore =int.Parse(score) });
+                var newScore = selectedPlayer.LevelScore = choosenScore;
+
+                
+
+                context.Entry(selectedPlayer).CurrentValues.SetValues(newScore);
+
+
             }
            //fixa listbox så att players läggs in där
 
@@ -168,6 +175,8 @@ namespace AngryBirdsDatabase
         private void ViewScoreButton_Click(object sender, RoutedEventArgs e)
         {
             string user = UsernameTextBox.Text;
+
+            ViewScoreOnePlayerListbox.Items.Clear();
 
             if (UsernameTextBox.Text != "")
             {
