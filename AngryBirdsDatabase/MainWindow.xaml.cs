@@ -177,12 +177,14 @@ namespace AngryBirdsDatabase
 
                 var list = selectedPlayer.Scores;
 
+                int totalScore = selectedPlayer.Scores.Select(p => p.LevelScore).Sum();
+
                 foreach (var x in list)
                 {
                 ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}");
 
                 }
-
+                ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
             }
 
             
