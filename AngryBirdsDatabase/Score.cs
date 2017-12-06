@@ -14,8 +14,6 @@ namespace AngryBirdsDatabase
 
         public int LevelScore { get; set; }
 
-        public int BirdsLeft { get; set; }
-
         public virtual Player Player { get; set; }
         public virtual Level Level { get; set; }
 

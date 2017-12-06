@@ -109,6 +109,10 @@
     <Compile Include="Migrations\201712061333140_deleted allow nulls.Designer.cs">
       <DependentUpon>201712061333140_deleted allow nulls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712062001436_DeletedBirdsLeftColumn.cs" />
+    <Compile Include="Migrations\201712062001436_DeletedBirdsLeftColumn.Designer.cs">
+      <DependentUpon>201712062001436_DeletedBirdsLeftColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Score.cs" />
@@ -176,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712061333140_deleted allow nulls.resx">
       <DependentUpon>201712061333140_deleted allow nulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712062001436_DeletedBirdsLeftColumn.resx">
+      <DependentUpon>201712062001436_DeletedBirdsLeftColumn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

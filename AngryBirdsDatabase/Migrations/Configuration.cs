@@ -27,37 +27,37 @@ namespace AngryBirdsDatabase.Migrations
         {
             // Player Score Level 1
 
-            Score player1ScoreLevel1 = new Score { LevelScore = 5, BirdsLeft = 2, Player = player1, Level = level1 };
+            Score player1ScoreLevel1 = new Score { LevelScore = 5, Player = player1, Level = level1 };
 
-            Score player2ScoreLevel1 = new Score { LevelScore = 4, BirdsLeft = 3, Player = player2, Level = level1 };
+            Score player2ScoreLevel1 = new Score { LevelScore = 4, Player = player2, Level = level1 };
 
-            Score player3ScoreLevel1 = new Score { LevelScore = 7, BirdsLeft = 0, Player = player3, Level = level1 };
+            Score player3ScoreLevel1 = new Score { LevelScore = 7, Player = player3, Level = level1 };
 
             // Player Score Level 2
 
-            Score player1ScoreLevel2 = new Score { LevelScore = 10, BirdsLeft = 0, Player = player1, Level = level2 };
+            Score player1ScoreLevel2 = new Score { LevelScore = 10, Player = player1, Level = level2 };
 
-            Score player2ScoreLevel2 = new Score { LevelScore = 9, BirdsLeft = 1, Player = player2, Level = level2 };
+            Score player2ScoreLevel2 = new Score { LevelScore = 9, Player = player2, Level = level2 };
 
-            Score player3ScoreLevel2 = new Score { LevelScore = 8, BirdsLeft = 2, Player = player3, Level = level2 };
+            Score player3ScoreLevel2 = new Score { LevelScore = 8, Player = player3, Level = level2 };
 
             // Player Score Level 3
 
-            Score player1ScoreLevel3 = new Score { LevelScore = 2, BirdsLeft = 3, Player = player1, Level = level3 };
+            Score player1ScoreLevel3 = new Score { LevelScore = 2, Player = player1, Level = level3 };
 
-            Score player2ScoreLevel3 = new Score { LevelScore = 1, BirdsLeft = 4, Player = player2, Level = level3 };
+            Score player2ScoreLevel3 = new Score { LevelScore = 1, Player = player2, Level = level3 };
 
-            Score player3ScoreLevel3 = new Score { LevelScore = 5, BirdsLeft = 0, Player = player3, Level = level3 };
+            Score player3ScoreLevel3 = new Score { LevelScore = 5, Player = player3, Level = level3 };
 
             //Player Score Level 4
 
-            Score player1ScoreLevel4 = new Score { LevelScore = 5, BirdsLeft = 1, Player = player1, Level = level4 };
+            Score player1ScoreLevel4 = new Score { LevelScore = 5, Player = player1, Level = level4 };
 
-            Score player2ScoreLevel4 = new Score { LevelScore = 6, BirdsLeft = 0, Player = player2, Level = level4 };
+            Score player2ScoreLevel4 = new Score { LevelScore = 6, Player = player2, Level = level4 };
 
             //Player Score Level 5
 
-            Score player1ScoreLevel5 = new Score { LevelScore = 6, BirdsLeft = 3, Player = player1, Level = level5 };
+            Score player1ScoreLevel5 = new Score { LevelScore = 6, Player = player1, Level = level5 };
 
 
             context.Players.AddOrUpdate<Player> (player1);
