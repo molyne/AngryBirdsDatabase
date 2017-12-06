@@ -148,7 +148,7 @@ namespace AngryBirdsDatabase
             foreach (var s in ScoresList)
             {
 
-                ScoreListBox.Items.Add($"{s.ScoreKey}. Level: {s.Level.LevelKey} {s.Player.PlayerName} Score: {s.LevelScore} Birdsleft: ");
+                ScoreListBox.Items.Add($"{s.ScoreKey}. Level: {s.Level.LevelKey} {s.Player.PlayerName} Score: {s.LevelScore} Birdsleft: {s.Level.Birds - s.LevelScore}");
             }
 
 
@@ -182,6 +182,10 @@ namespace AngryBirdsDatabase
             {
                 var selectedPlayer = context.Players.Where(p => p.PlayerName ==user).Single();
 
+                //var numberOfBirds = context.Levels.Select(s => s.Birds).ToList();
+                //var score = context.Scores.Select(s => s.LevelScore).ToList();
+                //int birdsLeft = numberOfBirds - score;
+
 
 
                 var list = selectedPlayer.Scores;
@@ -190,7 +194,7 @@ namespace AngryBirdsDatabase
 
                 foreach (var x in list)
                 {
-                ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} (birds left) Score: {x.LevelScore}");
+                ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}  ({x.Level.Birds - x.LevelScore} birds left)");
 
                 }
                 ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
