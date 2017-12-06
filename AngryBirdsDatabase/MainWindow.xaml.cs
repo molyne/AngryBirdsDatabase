@@ -151,11 +151,12 @@ namespace AngryBirdsDatabase
                 ScoreListBox.Items.Add($"{s.ScoreKey}. Level: {s.Level.LevelKey} {s.Player.PlayerName} Score: {s.LevelScore} Birdsleft: {s.Level.Birds - s.LevelScore}");
             }
 
-
         }
 
         private void AddLevelButton_Click(object sender, RoutedEventArgs e)
         {
+            
+
             string NumberOfBirds = AddLevelBirdsTextBox.Text;
 
             Level levelNumber = new Level { Birds = int.Parse(NumberOfBirds) };
@@ -186,8 +187,6 @@ namespace AngryBirdsDatabase
                 //var score = context.Scores.Select(s => s.LevelScore).ToList();
                 //int birdsLeft = numberOfBirds - score;
 
-
-
                 var list = selectedPlayer.Scores;
 
                 int totalScore = selectedPlayer.Scores.Select(p => p.LevelScore).Sum();
@@ -198,9 +197,18 @@ namespace AngryBirdsDatabase
 
                 }
                 ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
+            }  
+        }
+
+        private void AddLevelBirdsTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (AddLevelBirdsTextBox.Text != "")
+            {
+                AddLevelButton.IsEnabled = true;
             }
 
-            
+            else
+                AddLevelButton.IsEnabled = false;
         }
     }
 

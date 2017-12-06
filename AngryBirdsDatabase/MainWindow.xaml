@@ -14,8 +14,8 @@
         </Label>
         <TextBox x:Name="LevelTextBox" HorizontalAlignment="Left" Height="23" Margin="34,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="ScoreTextBox" HorizontalAlignment="Left" Height="23" Margin="34,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="AddLevelBirdsTextBox" HorizontalAlignment="Left" Height="23" Margin="582,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="AddLevelButton" Content="Add next level" HorizontalAlignment="Left" Margin="582,83,0,0" VerticalAlignment="Top" Width="123" Height="24" Click="AddLevelButton_Click"/>
+        <TextBox x:Name="AddLevelBirdsTextBox" HorizontalAlignment="Left" Height="23" Margin="582,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="AddLevelBirdsTextBox_TextChanged"/>
+        <Button x:Name="AddLevelButton" Content="Add next level" HorizontalAlignment="Left" Margin="582,137,0,0" VerticalAlignment="Top" Width="123" Height="24" Click="AddLevelButton_Click" IsEnabled="False"/>
         <Button x:Name="AddUserButton" Content="Update" HorizontalAlignment="Left" Margin="34,191,0,0" VerticalAlignment="Top" Width="42" Click="AddUserButton_Click"/>
         <Label x:Name="AddUserLabel" Content="Username:" HorizontalAlignment="Left" Margin="34,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="AddLevelLabel" Content="Level:" HorizontalAlignment="Left" Margin="34,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -25,10 +25,10 @@
         <Label x:Name="ScoresListBocLabel" Content="Scores table:" HorizontalAlignment="Left" Margin="34,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="PlayerListBoxLabel" Content="Players table:" HorizontalAlignment="Left" Margin="308,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="LevelListboxLabel" Content="Levels table:" HorizontalAlignment="Left" Margin="521,254,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label x:Name="AddBirdsLabel" Content="Add birds to level:" HorizontalAlignment="Left" Margin="582,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="AddBirdsLabel" Content="Add birds to level:" HorizontalAlignment="Left" Margin="582,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="ViewScoreLabel" Content="" HorizontalAlignment="Left" Margin="171,81,0,0" VerticalAlignment="Top" Width="216"/>
-        <ListBox x:Name="ViewScoreOnePlayerListbox" HorizontalAlignment="Left" Height="127" Margin="308,50,0,0" VerticalAlignment="Top" Width="222"/>
-        <Label x:Name="ChoosenPlayerScoreLevel" Content="Selected player score:" HorizontalAlignment="Left" Margin="308,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <ListBox x:Name="ViewScoreOnePlayerListbox" HorizontalAlignment="Left" Height="127" Margin="308,78,0,0" VerticalAlignment="Top" Width="222"/>
+        <Label x:Name="ChoosenPlayerScoreLevel" Content="Selected player score:" HorizontalAlignment="Left" Margin="308,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </Window>
