@@ -135,7 +135,21 @@ namespace AngryBirdsDatabase
 
         }
 
-       
+        private void AddLevelButton_Click(object sender, RoutedEventArgs e)
+        {
+            string NumberOfBirds = AddLevelBirdsTextBox.Text;
+
+            Level levelNumber = new Level { Birds = int.Parse(NumberOfBirds) };
+            context.Levels.Add(levelNumber);
+
+            context.SaveChanges();
+
+            LevelListbox.Items.Clear();
+            PlayerListBox.Items.Clear();
+            ScoreListBox.Items.Clear();
+
+            AddDataToListBoxes();
+        }
     }
 
 
