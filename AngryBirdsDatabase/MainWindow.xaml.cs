@@ -129,7 +129,7 @@ namespace AngryBirdsDatabase
             foreach (var s in ScoresList)
             {
 
-                ScoreListBox.Items.Add($"{s.ScoreKey}. Level: {s.Level.LevelKey} {s.Player.PlayerName} Score: {s.LevelScore} ");
+                ScoreListBox.Items.Add($"{s.ScoreKey}. Level: {s.Level.LevelKey} {s.Player.PlayerName} Score: {s.LevelScore} Birdsleft: {s.BirdsLeft} ");
             }
 
 
