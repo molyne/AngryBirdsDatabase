@@ -148,6 +148,8 @@ namespace AngryBirdsDatabase
             PlayerListBox.Items.Clear();
             ScoreListBox.Items.Clear();
 
+            AddLevelBirdsTextBox.Clear();
+
             AddDataToListBoxes();
         }
     }
