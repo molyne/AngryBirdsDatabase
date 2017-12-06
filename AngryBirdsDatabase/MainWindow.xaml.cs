@@ -26,11 +26,11 @@ namespace AngryBirdsDatabase
         Player player;
 
         List<Score> ScoresList;
+      
 
         public MainWindow()
         {
             InitializeComponent();
-
             //gör relationerna mellan tabellerna enligt normaliseringstabellen 3.
 
             //En spelare ska ha ett namn.
@@ -69,18 +69,25 @@ namespace AngryBirdsDatabase
             }
 
             AddDataToListBoxes();
+         
             Console.ReadLine();
         }
 
         private void AddUserButton_Click(object sender, RoutedEventArgs e)
         {
-            
+           var playerNames = context.Players.Select(s => s.PlayerName);
 
-            string userName = UsernameTextBox.Text;
+            if (UsernameTextBox.Text != "")
+            {
+                string userName = UsernameTextBox.Text;
+                if (!playerNames.Contains(userName))
+                {
 
-           player= new Player { PlayerName = userName };
+                    player = new Player { PlayerName = userName };
 
-            context.Players.Add(player);
+                    context.Players.Add(player);
+                }
+            }
 
             if (LevelTextBox.Text != "" || ScoreTextBox.Text!="")
             {
@@ -98,6 +105,8 @@ namespace AngryBirdsDatabase
             context.SaveChanges();
 
             PlayerListBox.Items.Clear();
+            LevelListbox.Items.Clear();
+            ScoreListBox.Items.Clear();
             AddDataToListBoxes();
           //var selectedPlayer = context.Scores.Where(s => s.Player.PlayerName == userName);
 
@@ -109,10 +118,12 @@ namespace AngryBirdsDatabase
             
 
             var allPlayers = context.Players.ToList();
+              
 
             foreach (var p in allPlayers)
             {
                 PlayerListBox.Items.Add("Id: "+p.PlayerKey +" Name: "+p.PlayerName);
+            
             }
 
             var getLevels = context.Levels.ToList();

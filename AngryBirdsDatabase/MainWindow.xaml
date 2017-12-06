@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="537.334" Width="745.666">
     <Grid Margin="0,0,-81.333,-90.333">
-        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" Height="23" Margin="34,50,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="UsernameTextBox" HorizontalAlignment="Left" Height="23" Margin="34,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <ListBox x:Name="ScoreListBox" HorizontalAlignment="Left" Height="181" Margin="43,280,0,0" VerticalAlignment="Top" Width="204"/>
         <Label x:Name="InfoLabel" Content="Info" HorizontalAlignment="Left" Margin="171,46,0,0" VerticalAlignment="Top" Width="102"/>
         <TextBox x:Name="LevelTextBox" HorizontalAlignment="Left" Height="23" Margin="34,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
