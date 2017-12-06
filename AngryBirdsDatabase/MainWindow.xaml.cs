@@ -25,6 +25,8 @@ namespace AngryBirdsDatabase
 
         Player player;
 
+        List<Score> ScoresList;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -104,13 +106,33 @@ namespace AngryBirdsDatabase
         }
         private void AddDataToListBoxes()
         {
+            
 
             var allPlayers = context.Players.ToList();
 
             foreach (var p in allPlayers)
             {
-                PlayerListBox.Items.Add(p.PlayerName);
+                PlayerListBox.Items.Add("Id: "+p.PlayerKey +" Name: "+p.PlayerName);
             }
+
+            var getLevels = context.Levels.ToList();
+
+            foreach (var l in getLevels)
+            {
+                LevelListbox.Items.Add("Level "+l.LevelKey + " ,total Birds: " + l.Birds);
+            }
+
+
+            ScoresList = context.Scores.ToList();
+
+
+            foreach (var s in ScoresList)
+            {
+
+                ScoreListBox.Items.Add($"{s.ScoreKey}. Level: {s.Level.LevelKey} {s.Player.PlayerName} Score: {s.LevelScore} ");
+            }
+
+
         }
 
        
