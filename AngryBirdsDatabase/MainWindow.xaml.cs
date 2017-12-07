@@ -221,7 +221,9 @@ namespace AngryBirdsDatabase
 
                 foreach (var x in list)
                 {
-                    ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}  ({x.Level.Birds - x.LevelScore} birds left)");
+                    var bestplayerScore = context.Scores.Where(s => s.Level.LevelKey == x.Level.LevelKey).Select(s => s.LevelScore).Min();
+
+                    ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}  ({x.Level.Birds - x.LevelScore} birds left) {bestplayerScore}");
 
                 }
                 ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
