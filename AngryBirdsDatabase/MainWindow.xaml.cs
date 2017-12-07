@@ -116,6 +116,7 @@ namespace AngryBirdsDatabase
             LevelListbox.Items.Clear();
             ScoreListBox.Items.Clear();
             AddDataToListBoxes();
+            UpdateViewScore();
           //var selectedPlayer = context.Scores.Where(s => s.Player.PlayerName == userName);
 
           //  ScoreListBox.Items.Add(selectedPlayer);
@@ -175,29 +176,7 @@ namespace AngryBirdsDatabase
 
         private void ViewScoreButton_Click(object sender, RoutedEventArgs e)
         {
-            string user = UsernameTextBox.Text;
-
-            ViewScoreOnePlayerListbox.Items.Clear();
-
-            if (UsernameTextBox.Text != "")
-            {
-                var selectedPlayer = context.Players.Where(p => p.PlayerName ==user).Single();
-
-                //var numberOfBirds = context.Levels.Select(s => s.Birds).ToList();
-                //var score = context.Scores.Select(s => s.LevelScore).ToList();
-                //int birdsLeft = numberOfBirds - score;
-
-                var list = selectedPlayer.Scores;
-
-                int totalScore = selectedPlayer.Scores.Select(p => p.LevelScore).Sum();
-
-                foreach (var x in list)
-                {
-                ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}  ({x.Level.Birds - x.LevelScore} birds left)");
-
-                }
-                ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
-            }  
+            UpdateViewScore();
         }
 
         private void AddLevelBirdsTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -209,6 +188,32 @@ namespace AngryBirdsDatabase
 
             else
                 AddLevelButton.IsEnabled = false;
+        }
+        private void UpdateViewScore()
+        {
+            string user = UsernameTextBox.Text;
+
+            ViewScoreOnePlayerListbox.Items.Clear();
+
+            if (UsernameTextBox.Text != "")
+            {
+                var selectedPlayer = context.Players.Where(p => p.PlayerName == user).Single();
+
+                //var numberOfBirds = context.Levels.Select(s => s.Birds).ToList();
+                //var score = context.Scores.Select(s => s.LevelScore).ToList();
+                //int birdsLeft = numberOfBirds - score;
+
+                var list = selectedPlayer.Scores;
+
+                int totalScore = selectedPlayer.Scores.Select(p => p.LevelScore).Sum();
+
+                foreach (var x in list)
+                {
+                    ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}  ({x.Level.Birds - x.LevelScore} birds left)");
+
+                }
+                ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
+            }
         }
     }
 
