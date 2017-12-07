@@ -268,13 +268,29 @@ namespace AngryBirdsDatabase
 
                 var selectedLevelKey = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x).Single();
 
-                player = new Player { PlayerName = userName };
+                if (!playerNames.Contains(userName))
+                {
+                   
 
-                context.Players.Add(player);
+                    player = new Player { PlayerName = userName };
 
-                Score score = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = player };
+                    context.Players.Add(player);
 
-                context.Scores.Add(score);
+                    Score score = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = player };
+
+                    context.Scores.Add(score);
+                }
+
+                if (playerNames.Contains(userName))
+                    {
+
+                    var searchPlayer = context.Players.Where(p => p.PlayerName == userName).Select(x => x).Single();
+
+                    Score score = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player =searchPlayer };
+
+                    context.Scores.Add(score);
+                }
+                
             }
 
 
