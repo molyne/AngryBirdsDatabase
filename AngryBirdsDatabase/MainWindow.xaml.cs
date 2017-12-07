@@ -223,7 +223,9 @@ namespace AngryBirdsDatabase
                 {
                     var bestplayerScore = context.Scores.Where(s => s.Level.LevelKey == x.Level.LevelKey).Select(s => s.LevelScore).Min();
 
-                    ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}  ({x.Level.Birds - x.LevelScore} birds left) {bestplayerScore}");
+                    var bestplayerName = context.Scores.Where(s => s.LevelScore == bestplayerScore && s.Level.LevelKey == x.Level.LevelKey).Select(s => s.Player.PlayerName).Single();
+
+                    ViewScoreOnePlayerListbox.Items.Add($"Level: {x.Level.LevelKey} Score: {x.LevelScore}  ({x.Level.Birds - x.LevelScore} birds left)  >> {bestplayerName} {bestplayerScore} score");
 
                 }
                 ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
