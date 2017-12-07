@@ -172,9 +172,15 @@ namespace AngryBirdsDatabase
             
 
             string NumberOfBirds = AddLevelBirdsTextBox.Text;
-
-            Level levelNumber = new Level { Birds = int.Parse(NumberOfBirds) };
-            context.Levels.Add(levelNumber);
+            try
+            {
+                Level levelNumber = new Level { Birds = int.Parse(NumberOfBirds) };
+                context.Levels.Add(levelNumber);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Only digits valid.");
+            }
 
             context.SaveChanges();
 
