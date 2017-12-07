@@ -235,8 +235,19 @@ namespace AngryBirdsDatabase
 
             string userName = UsernameTextBox.Text;
 
-            if (UsernameTextBox.Text != "")
+            if (UsernameTextBox.Text != "" && LevelTextBox.Text=="" && ScoreTextBox.Text=="")
             {
+            if (playerNames.Contains(userName))
+            {
+                int levelNumber = int.Parse(LevelTextBox.Text);
+                int choosenScore = int.Parse(ScoreTextBox.Text);
+
+                var selectedLevelKey = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x).Single();
+                var searchPlayer = context.Players.Where(p => p.PlayerName == userName).Select(x => x).Single();
+
+                Score score2 = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = searchPlayer };
+
+            }
                 if (!playerNames.Contains(userName))
                 {
 
@@ -246,22 +257,38 @@ namespace AngryBirdsDatabase
                 }
 
             }
+            if (UsernameTextBox.Text != "" && LevelTextBox.Text != "" && ScoreTextBox.Text != "")
+            {
+                int levelNumber = int.Parse(LevelTextBox.Text);
+                int choosenScore = int.Parse(ScoreTextBox.Text);
 
-                context.SaveChanges();
+                var selectedLevelKey = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x).Single();
 
+                player = new Player { PlayerName = userName };
 
-                PlayerListBox.Items.Clear();
-                ScoreListBox.Items.Clear();
-                LevelListbox.Items.Clear();
-                ViewScoreOnePlayerListbox.Items.Clear();
+                context.Players.Add(player);
 
-                AddDataToListBoxes();
+                Score score = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = player };
+
+                context.Scores.Add(score);
             }
+
+
+            context.SaveChanges();
+
+
+            PlayerListBox.Items.Clear();
+            ScoreListBox.Items.Clear();
+            LevelListbox.Items.Clear();
+            ViewScoreOnePlayerListbox.Items.Clear();
+
+            AddDataToListBoxes();
+
         }
 
-
     }
-
 }
+
+
 
 
