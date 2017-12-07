@@ -95,8 +95,7 @@ namespace AngryBirdsDatabase
 
                 if (LevelTextBox.Text != "" || ScoreTextBox.Text != "")
                 {
-                try
-                {
+               
 
                     int levelNumber = int.Parse(LevelTextBox.Text);
                     int choosenScore = int.Parse(ScoreTextBox.Text);
@@ -115,20 +114,17 @@ namespace AngryBirdsDatabase
                         context.Entry(selectedPlayer).CurrentValues.SetValues(newScore);
 
 
-            context.SaveChanges();
                     }
                 else
                 {
                     MessageBox.Show("Score is too high!");
                 }
 
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Invalid input");
-                }
+         }
+               
+            context.SaveChanges();
 
-            }
+            
 
 
             PlayerListBox.Items.Clear();
@@ -251,8 +247,7 @@ namespace AngryBirdsDatabase
 
             if (LevelTextBox.Text != "" || ScoreTextBox.Text != "")
             {
-                try
-                {
+                
                     Score score2;
                     string userName = UsernameTextBox.Text;
                     int levelNumber = int.Parse(LevelTextBox.Text);
@@ -282,18 +277,15 @@ namespace AngryBirdsDatabase
                         }
 
                         context.Scores.Add(score2);
-                    context.SaveChanges();
                     }
 
                     else
                     {
                         MessageBox.Show("Score is too high!");
                     }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Invalid input");
-                }
+                
+                    context.SaveChanges();
+              
 
                 PlayerListBox.Items.Clear();
                 ScoreListBox.Items.Clear();
