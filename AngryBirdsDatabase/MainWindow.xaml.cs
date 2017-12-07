@@ -24,6 +24,7 @@ namespace AngryBirdsDatabase
         MyContext context = new MyContext();
 
         Player player;
+        Player player2;
         Player playerviewScore;
 
         List<Score> ScoresList;
@@ -94,17 +95,19 @@ namespace AngryBirdsDatabase
 
             if (LevelTextBox.Text != "" || ScoreTextBox.Text!="")
             {
+               
                 int levelNumber = int.Parse(LevelTextBox.Text);
                 int choosenScore = int.Parse(ScoreTextBox.Text);
 
-
-                var selectedPlayer = context.Scores.Where(s => s.Level.LevelKey == levelNumber && s.Player.PlayerName == userName).Select(x => x).Single();
-
+               
+                    var selectedPlayer = context.Scores.Where(s => s.Level.LevelKey == levelNumber && s.Player.PlayerName == userName).Select(x => x).Single();
                 var newScore = selectedPlayer.LevelScore = choosenScore;
-
-                
-
+                    
                 context.Entry(selectedPlayer).CurrentValues.SetValues(newScore);
+                
+               
+                   
+                
 
 
             }
@@ -115,8 +118,10 @@ namespace AngryBirdsDatabase
             PlayerListBox.Items.Clear();
             LevelListbox.Items.Clear();
             ScoreListBox.Items.Clear();
+            ViewScoreOnePlayerListbox.Items.Clear();
             AddDataToListBoxes();
-            UpdateViewScore();
+
+           
           //var selectedPlayer = context.Scores.Where(s => s.Player.PlayerName == userName);
 
           //  ScoreListBox.Items.Add(selectedPlayer);
@@ -213,6 +218,47 @@ namespace AngryBirdsDatabase
 
                 }
                 ViewScoreOnePlayerListbox.Items.Add("Total score: " + totalScore);
+            }
+        }
+
+        private void AddNewScoreButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            var playerNames = context.Players.Select(s => s.PlayerName);
+
+            if (LevelTextBox.Text != "" || ScoreTextBox.Text != "")
+            {
+                Score score2;
+                    string userName = UsernameTextBox.Text;
+                    int levelNumber = int.Parse(LevelTextBox.Text);
+                    int choosenScore = int.Parse(ScoreTextBox.Text);
+
+                    var selectedLevelKey = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x).Single();
+
+                if (!playerNames.Contains(userName))
+                {
+
+
+                    player2 = new Player { PlayerName = userName };
+
+                     score2 = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = player2 };
+
+                }
+                else
+                {
+
+                    var searchPlayer = context.Players.Where(p => p.PlayerName == userName).Select(x => x).Single();
+
+                     score2 = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = searchPlayer };
+                }
+                    context.Scores.Add(score2);
+                    context.SaveChanges();
+
+                PlayerListBox.Items.Clear();
+                ScoreListBox.Items.Clear();
+                LevelListbox.Items.Clear();
+
+                AddDataToListBoxes();
             }
         }
     }

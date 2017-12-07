@@ -16,7 +16,7 @@
         <TextBox x:Name="ScoreTextBox" HorizontalAlignment="Left" Height="23" Margin="34,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="AddLevelBirdsTextBox" HorizontalAlignment="Left" Height="23" Margin="582,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="AddLevelBirdsTextBox_TextChanged"/>
         <Button x:Name="AddLevelButton" Content="Add next level" HorizontalAlignment="Left" Margin="582,137,0,0" VerticalAlignment="Top" Width="123" Height="24" Click="AddLevelButton_Click" IsEnabled="False"/>
-        <Button x:Name="AddUserButton" Content="Update" HorizontalAlignment="Left" Margin="34,191,0,0" VerticalAlignment="Top" Width="42" Click="AddUserButton_Click"/>
+        <Button x:Name="AddUserButton" Content="Update" HorizontalAlignment="Left" Margin="88,190,0,0" VerticalAlignment="Top" Width="42" Click="AddUserButton_Click"/>
         <Label x:Name="AddUserLabel" Content="Username:" HorizontalAlignment="Left" Margin="34,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="AddLevelLabel" Content="Level:" HorizontalAlignment="Left" Margin="34,78,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label x:Name="AddScoreLAbel" Content="Score:" HorizontalAlignment="Left" Margin="34,127,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
@@ -29,6 +29,7 @@
         <Label x:Name="ViewScoreLabel" Content="" HorizontalAlignment="Left" Margin="171,81,0,0" VerticalAlignment="Top" Width="216"/>
         <ListBox x:Name="ViewScoreOnePlayerListbox" HorizontalAlignment="Left" Height="127" Margin="308,78,0,0" VerticalAlignment="Top" Width="222"/>
         <Label x:Name="ChoosenPlayerScoreLevel" Content="Selected player score:" HorizontalAlignment="Left" Margin="308,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="AddNewScoreButton" Content="Add" HorizontalAlignment="Left" Margin="34,190,0,0" VerticalAlignment="Top" Width="47" Click="AddNewScoreButton_Click"/>
 
     </Grid>
 </Window>
