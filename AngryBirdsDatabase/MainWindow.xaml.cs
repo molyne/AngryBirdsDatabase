@@ -282,6 +282,7 @@ namespace AngryBirdsDatabase
                         }
 
                         context.Scores.Add(score2);
+                    context.SaveChanges();
                     }
 
                     else
@@ -293,7 +294,6 @@ namespace AngryBirdsDatabase
                 {
                     MessageBox.Show("Invalid input");
                 }
-                    context.SaveChanges();
 
                 PlayerListBox.Items.Clear();
                 ScoreListBox.Items.Clear();
