@@ -115,6 +115,7 @@ namespace AngryBirdsDatabase
                         context.Entry(selectedPlayer).CurrentValues.SetValues(newScore);
 
 
+            context.SaveChanges();
                     }
                 else
                 {
@@ -129,7 +130,6 @@ namespace AngryBirdsDatabase
 
             }
 
-            context.SaveChanges();
 
             PlayerListBox.Items.Clear();
             LevelListbox.Items.Clear();
