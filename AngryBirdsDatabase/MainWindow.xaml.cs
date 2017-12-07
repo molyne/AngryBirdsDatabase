@@ -95,28 +95,36 @@ namespace AngryBirdsDatabase
 
                 if (LevelTextBox.Text != "" || ScoreTextBox.Text != "")
                 {
-
-                int levelNumber = int.Parse(LevelTextBox.Text);
-                int choosenScore = int.Parse(ScoreTextBox.Text);
-
-                var checkscore = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x.Birds).Single();
-
-                if (choosenScore <= checkscore)
+                try
                 {
 
+                    int levelNumber = int.Parse(LevelTextBox.Text);
+                    int choosenScore = int.Parse(ScoreTextBox.Text);
 
 
-                    var selectedPlayer = context.Scores.Where(s => s.Level.LevelKey == levelNumber && s.Player.PlayerName == userName).Select(x => x).Single();
-                    var newScore = selectedPlayer.LevelScore = choosenScore;
+                    var checkscore = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x.Birds).Single();
 
-                    context.Entry(selectedPlayer).CurrentValues.SetValues(newScore);
+                    if (choosenScore <= checkscore)
+                    {
 
 
-                }
 
+                        var selectedPlayer = context.Scores.Where(s => s.Level.LevelKey == levelNumber && s.Player.PlayerName == userName).Select(x => x).Single();
+                        var newScore = selectedPlayer.LevelScore = choosenScore;
+
+                        context.Entry(selectedPlayer).CurrentValues.SetValues(newScore);
+
+
+                    }
                 else
                 {
                     MessageBox.Show("Score is too high!");
+                }
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Invalid input");
                 }
 
             }
@@ -243,46 +251,54 @@ namespace AngryBirdsDatabase
 
             if (LevelTextBox.Text != "" || ScoreTextBox.Text != "")
             {
-                Score score2;
-                string userName = UsernameTextBox.Text;
-                int levelNumber = int.Parse(LevelTextBox.Text);
-                int choosenScore = int.Parse(ScoreTextBox.Text);
-
-                var selectedLevelKey = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x).Single();
-
-                var checkscore = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x.Birds).Single();
-
-                if (choosenScore <= checkscore)
-                { 
-                if (!playerNames.Contains(userName))
+                try
                 {
+                    Score score2;
+                    string userName = UsernameTextBox.Text;
+                    int levelNumber = int.Parse(LevelTextBox.Text);
+                    int choosenScore = int.Parse(ScoreTextBox.Text);
+
+                    var selectedLevelKey = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x).Single();
+
+                    var checkscore = context.Levels.Where(s => s.LevelKey == levelNumber).Select(x => x.Birds).Single();
+
+                    if (choosenScore <= checkscore)
+                    {
+                        if (!playerNames.Contains(userName))
+                        {
 
 
-                    player2 = new Player { PlayerName = userName };
+                            player2 = new Player { PlayerName = userName };
 
-                    score2 = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = player2 };
+                            score2 = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = player2 };
 
+                        }
+                        else
+                        {
+
+                            var searchPlayer = context.Players.Where(p => p.PlayerName == userName).Select(x => x).Single();
+
+                            score2 = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = searchPlayer };
+                        }
+
+                        context.Scores.Add(score2);
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Score is too high!");
+                    }
                 }
-                else
+                catch (Exception)
                 {
-
-                    var searchPlayer = context.Players.Where(p => p.PlayerName == userName).Select(x => x).Single();
-
-                    score2 = new Score { LevelScore = choosenScore, Level = selectedLevelKey, Player = searchPlayer };
-                }
-
-                context.Scores.Add(score2);
-            }
-
-                else
-                {
-                    MessageBox.Show("Score is too high!");
+                    MessageBox.Show("Invalid input");
                 }
                     context.SaveChanges();
 
                 PlayerListBox.Items.Clear();
                 ScoreListBox.Items.Clear();
                 LevelListbox.Items.Clear();
+                ViewScoreOnePlayerListbox.Items.Clear();
 
                 AddDataToListBoxes();
             }
