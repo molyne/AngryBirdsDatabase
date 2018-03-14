@@ -1,0 +1,18 @@
+namespace AngryBirdsDatabase.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Addedannotations : DbMigration
+    {
+        public override void Up()
+        {
+            AlterColumn("dbo.Players", "PlayerName", c => c.String(nullable: false, maxLength: 20));
+        }
+        
+        public override void Down()
+        {
+            AlterColumn("dbo.Players", "PlayerName", c => c.String());
+        }
+    }
+}

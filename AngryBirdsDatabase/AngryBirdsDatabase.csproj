@@ -34,7 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +61,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\201712041043562_InitialCreate.cs" />
+    <Compile Include="Migrations\201712041043562_InitialCreate.Designer.cs">
+      <DependentUpon>201712041043562_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041146518_DatabaseEmpty.cs" />
+    <Compile Include="Migrations\201712041146518_DatabaseEmpty.Designer.cs">
+      <DependentUpon>201712041146518_DatabaseEmpty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041240278_ChangesKeyNames.cs" />
+    <Compile Include="Migrations\201712041240278_ChangesKeyNames.Designer.cs">
+      <DependentUpon>201712041240278_ChangesKeyNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041246152_Deletedproperty.cs" />
+    <Compile Include="Migrations\201712041246152_Deletedproperty.Designer.cs">
+      <DependentUpon>201712041246152_Deletedproperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041259252_Addedannotations.cs" />
+    <Compile Include="Migrations\201712041259252_Addedannotations.Designer.cs">
+      <DependentUpon>201712041259252_Addedannotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041316063_ChangedRelations.cs" />
+    <Compile Include="Migrations\201712041316063_ChangedRelations.Designer.cs">
+      <DependentUpon>201712041316063_ChangedRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041346357_DeletedTotalScore.cs" />
+    <Compile Include="Migrations\201712041346357_DeletedTotalScore.Designer.cs">
+      <DependentUpon>201712041346357_DeletedTotalScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712041408440_AddedColumn.cs" />
+    <Compile Include="Migrations\201712041408440_AddedColumn.Designer.cs">
+      <DependentUpon>201712041408440_AddedColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051328097_allowed nulls.cs" />
+    <Compile Include="Migrations\201712051328097_allowed nulls.Designer.cs">
+      <DependentUpon>201712051328097_allowed nulls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051429591_deleted numberlevels.cs" />
+    <Compile Include="Migrations\201712051429591_deleted numberlevels.Designer.cs">
+      <DependentUpon>201712051429591_deleted numberlevels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051431451_deleted numberlevelscolumn.cs" />
+    <Compile Include="Migrations\201712051431451_deleted numberlevelscolumn.Designer.cs">
+      <DependentUpon>201712051431451_deleted numberlevelscolumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712061333140_deleted allow nulls.cs" />
+    <Compile Include="Migrations\201712061333140_deleted allow nulls.Designer.cs">
+      <DependentUpon>201712061333140_deleted allow nulls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712062001436_DeletedBirdsLeftColumn.cs" />
+    <Compile Include="Migrations\201712062001436_DeletedBirdsLeftColumn.Designer.cs">
+      <DependentUpon>201712062001436_DeletedBirdsLeftColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MyContext.cs" />
+    <Compile Include="Score.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,12 +124,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Level.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -81,10 +145,50 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201712041043562_InitialCreate.resx">
+      <DependentUpon>201712041043562_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041146518_DatabaseEmpty.resx">
+      <DependentUpon>201712041146518_DatabaseEmpty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041240278_ChangesKeyNames.resx">
+      <DependentUpon>201712041240278_ChangesKeyNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041246152_Deletedproperty.resx">
+      <DependentUpon>201712041246152_Deletedproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041259252_Addedannotations.resx">
+      <DependentUpon>201712041259252_Addedannotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041316063_ChangedRelations.resx">
+      <DependentUpon>201712041316063_ChangedRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041346357_DeletedTotalScore.resx">
+      <DependentUpon>201712041346357_DeletedTotalScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712041408440_AddedColumn.resx">
+      <DependentUpon>201712041408440_AddedColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051328097_allowed nulls.resx">
+      <DependentUpon>201712051328097_allowed nulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051429591_deleted numberlevels.resx">
+      <DependentUpon>201712051429591_deleted numberlevels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051431451_deleted numberlevelscolumn.resx">
+      <DependentUpon>201712051431451_deleted numberlevelscolumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712061333140_deleted allow nulls.resx">
+      <DependentUpon>201712061333140_deleted allow nulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712062001436_DeletedBirdsLeftColumn.resx">
+      <DependentUpon>201712062001436_DeletedBirdsLeftColumn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
